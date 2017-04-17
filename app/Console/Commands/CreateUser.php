@@ -40,9 +40,11 @@ class CreateUser extends Command
     {
 
         $answerUser = $this->ask('Enter name');
+        $answerPassword = $this->ask('Enter password');
         $answerInfo = $this->ask('Enter information');
 
-        DB::insert('insert into users (name, info) values (?, ?)', [$answerUser, $answerInfo]);
+
+        DB::insert('insert into users (name, password, info) values (?, ?, ?)', [$answerUser, $answerPassword, $answerInfo]);
         echo 'Added user '. $answerUser;
 
 
